@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
-    <div className="md:max-w-screen-2xl mx-auto md:px-4 h-screen flex flex-col justify-center items-center">
+    <div className="md:max-w-screen-2xl mx-auto md:px-4 h-screen flex flex-col justify-center items-center" id="home">
       <div className="max-w-screen-2xl h-screen absolute">
         <Image
           src={hero}

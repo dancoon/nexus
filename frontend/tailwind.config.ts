@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -21,6 +22,9 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+      backgroundImage: {
+        "statistics": "url('/statistics.png')",
       },
       colors: {
         border: "hsl(var(--border))",

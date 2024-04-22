@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
@@ -7,28 +9,19 @@ import { useTheme } from "next-themes";
 
 const Logo = () => {
   const { theme } = useTheme();
+  const isLightTheme = theme === "light";
+  const isDarkTheme = theme === "dark";
+
   return (
-    <>
-      <Link href="/">
-        {theme === "light" ? (
-          <Image
-            src={whiteModeLogo}
-            alt="nexus's logo"
-            height={25}
-            width={83}
-            priority
-          />
-        ) : (
-          <Image
-            src={darkModeLogo}
-            alt="nexus's logo"
-            height={25}
-            width={83}
-            priority
-          />
-        )}
-      </Link>
-    </>
+    <Link href={"/"}>
+      <Image
+        src={isLightTheme ? whiteModeLogo : isDarkTheme? darkModeLogo: null}
+        alt="nexus's logo"
+        height={25}
+        width={83}
+        priority
+      />
+    </Link>
   );
 };
 

@@ -30,7 +30,7 @@ const features = [
 
 const Feature = () => {
   return (
-    <div className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center">
+    <div className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center" id="features">
       <div>
         <h2 className="text-xl font-bold md:text-5xl">
           Connecting Developers, <br /> Empowering Collaboration

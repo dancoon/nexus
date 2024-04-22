@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
 import Logo from "./logo";
 
 const NavLinks = [
-  { title: "Features", href: "#" },
-  { title: "About", href: "#" },
+  { title: "Features", href: "#features" },
+  { title: "About", href: "#about" },
   { title: "Articles", href: "#" },
   { title: "Events", href: "#" },
   { title: "FAQs", href: "#" },
