@@ -1,4 +1,5 @@
 import About from "@/components/about/about";
+import Articles from "@/components/articles/articles";
 import Feature from "@/components/feature/feature";
 import Hero from "@/components/hero/hero";
 import Navbar from "@/components/navbar";
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Partners />
       <Statistics />
+      <Articles />
     </>
   );
 }
