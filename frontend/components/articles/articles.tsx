@@ -52,7 +52,7 @@ const articles: Article[] = [
 const Articles = () => {
   return (
     <div className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center">
-      <h4 className="font-bold text-sm md:text-normal">Articles</h4>
+      <h4 className="font-bold text-sm md:text-normal md:text-[18px]">Articles</h4>
       <h3 className="font-bold text-3xl mt-3 md:text-5xl">Discover New Tech Content</h3>
       <p className="text-sm mt-5 md:text-lg max-w-[850px] md:text-center mx-auto">
         Stay updated with the latest tech articles, tutorials, and industry news

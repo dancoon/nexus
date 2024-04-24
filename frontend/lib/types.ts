@@ -13,3 +13,13 @@ export interface Article {
   datePublished: string;
   minutesToRead: number;
 }
+
+export interface Event {
+  link: string;
+  tag: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+  date: string;
+  location: string;
+}
