@@ -6,6 +6,7 @@ import Hero from "@/components/hero/hero";
 import Navbar from "@/components/navbar";
 import Partners from "@/components/partners/partners";
 import Statistics from "@/components/statistics/statistics";
+import Testimonials from "@/components/testimonials/testimonials";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Statistics />
       <Articles />
       <Events />
+      <Testimonials />
     </>
   );
 }

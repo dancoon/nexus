@@ -7,13 +7,12 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+
 } from "@/components/ui/carousel";
 
 const Partners = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 500, stopOnInteraction: false, jumps: true })
+    Autoplay({ delay: 1500, stopOnInteraction: false, jumps: true })
   );
 
   return (

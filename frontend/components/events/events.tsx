@@ -38,7 +38,7 @@ const events: Event[] = [
 
 const Events = () => {
   return (
-    <div className="max-w-screen-2xl px-4 py-16 md:py-28 mx-auto mt-14 md:mt-28 text-center justify-center border-t border-black dark:border-slate-400">
+    <div className="max-w-screen-2xl px-4 py-16 md:pt-28 mx-auto mt-14 md:mt-28 text-center justify-center border-t border-black dark:border-slate-400">
       <h4 className="font-bold text-sm md:text-normal md:text-[18px]">
         Discover
       </h4>

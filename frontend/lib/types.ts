@@ -23,3 +23,9 @@ export interface Event {
   date: string;
   location: string;
 }
+
+export interface Testimonial {
+  rating: number,
+  comment: string,
+  user: User
+}
