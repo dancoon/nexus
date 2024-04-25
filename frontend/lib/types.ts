@@ -29,3 +29,8 @@ export interface Testimonial {
   comment: string,
   user: User
 }
+
+export interface Faq {
+  question: string;
+  answer: string;
+}

@@ -1,6 +1,8 @@
 import About from "@/components/about/about";
 import Articles from "@/components/articles/articles";
+import Contact from "@/components/contact/contact";
 import Events from "@/components/events/events";
+import Faqs from "@/components/faqs/faqs";
 import Feature from "@/components/feature/feature";
 import Hero from "@/components/hero/hero";
 import Navbar from "@/components/navbar";
@@ -20,6 +22,8 @@ export default function Home() {
       <Articles />
       <Events />
       <Testimonials />
+      <Faqs />
+      <Contact />
     </>
   );
 }
