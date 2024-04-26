@@ -52,8 +52,12 @@ const Navbar = () => {
         <div className="flex space-x-4">
           <ModeToggle />
           <div className="hidden md:flex space-x-4">
-            <Button variant={"outline"}>Log In</Button>
-            <Button>Sign Up</Button>
+            <Button variant={"outline"} asChild>
+              <Link href="/auth/login">Log In</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/auth/signup">Sign Up</Link>
+            </Button>
           </div>
 
           <button
