@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { FaChevronRight } from "react-icons/fa6";
 import connectimage from "../../public/connect.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -42,8 +43,10 @@ const About = () => {
         </div>
         <div className="mt-4 space-x-6 md:space-x-10">
           <Button variant={"outline"}>Learn More</Button>
-          <Button variant={"ghost"} >
-            Sign Up <FaChevronRight className="ml-1" />
+          <Button variant={"ghost"} asChild>
+            <Link href="/auth/signup">
+              Sign Up <FaChevronRight className="ml-1" />
+            </Link>
           </Button>
         </div>
       </div>

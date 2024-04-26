@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import hero from "@/public/hero.png";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -25,8 +26,12 @@ const Hero = () => {
           Amplify Your Skills. Amplify Your Network
         </p>
         <div className="mt-6 space-x-4">
-          <Button size={"lg"}>Sign Up</Button>
-          <Button size={"lg"} variant={"secondary"}>Log In</Button>
+          <Button size={"lg"} asChild>
+            <Link href="/auth/signup">Sign Up</Link>
+          </Button>
+          <Button size={"lg"} variant={"secondary"} asChild>
+            <Link href="/auth/login">Log In</Link>
+          </Button>
         </div>
       </div>
     </div>

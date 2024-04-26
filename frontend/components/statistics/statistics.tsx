@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { FaChevronRight } from "react-icons/fa6";
+import Link from "next/link";
 
 const Statistics = () => {
   return (
@@ -32,8 +33,10 @@ const Statistics = () => {
             >
               Learn More
             </Button>
-            <Button variant={"ghost"}>
-              Sign Up <FaChevronRight className="ml-1" />
+            <Button variant={"ghost"} asChild>
+              <Link href="/auth/signup">
+                Sign Up <FaChevronRight className="ml-1" />
+              </Link>
             </Button>
           </div>
         </div>
