@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Event } from "@/lib/types";
 import { IoLocationOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
@@ -25,6 +25,10 @@ const EventCard: React.FC<Event> = ({
           width={450}
           height={350}
           className="mb-6"
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
         />
         <span className="font-bold text-sm absolute bg-slate-200 p-1 px-2 top-4 right-4 rounded dark:bg-black dark:text-white3">
           {tag}

@@ -2,11 +2,14 @@ import React from "react";
 import { Button } from "../ui/button";
 import { FaChevronRight } from "react-icons/fa6";
 import connectimage from "../../public/connect.png";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const About = () => {
   return (
-    <div className="max-w-screen-2xl px-4 mx-auto mt-14 text-left justify-center md:mt-28 flex md:items-center" id="#about">
+    <div
+      className="max-w-screen-2xl px-4 mx-auto mt-14 text-left justify-center md:mt-28 flex md:items-center"
+      id="#about"
+    >
       <div className="md:min-h-[540px]">
         <h2 className="text-xl font-bold md:hidden">
           Unlock <br /> Opportunities and <br /> Collaborate with <br />{" "}
@@ -38,16 +41,22 @@ const About = () => {
           </div>
         </div>
         <div className="mt-4 space-x-6 md:space-x-10">
-          <Button className="bg-white border bg-opacity-0 border-black text-black dark:text-white dark:border-white">
-            Learn More
-          </Button>
-          <Button className="bg-white  bg-opacity-0 text-black dark:text-white">
+          <Button variant={"outline"}>Learn More</Button>
+          <Button variant={"ghost"} >
             Sign Up <FaChevronRight className="ml-1" />
           </Button>
         </div>
       </div>
       <div className="hidden md:block">
-        <Image src={connectimage} alt="connect" className="rounded-lg" />
+        <Image
+          src={connectimage}
+          alt="connect"
+          className="rounded-lg"
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
+        />
       </div>
     </div>
   );

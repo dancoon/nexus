@@ -52,10 +52,8 @@ const Navbar = () => {
         <div className="flex space-x-4">
           <ModeToggle />
           <div className="hidden md:flex space-x-4">
-            <Button className="bg-white text-black outline outline-1 dark:bg-black dark:text-white">
-              Log In
-            </Button>
-            <Button className="">Sign Up</Button>
+            <Button variant={"outline"}>Log In</Button>
+            <Button>Sign Up</Button>
           </div>
 
           <button

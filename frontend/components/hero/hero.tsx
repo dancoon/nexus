@@ -1,17 +1,20 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import hero from "@/public/hero.png";
 import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
-    <div className="md:max-w-screen-2xl mx-auto md:px-4 h-screen flex flex-col justify-center items-center" id="home">
+    <div
+      className="md:max-w-screen-2xl mx-auto md:px-4 h-screen flex flex-col justify-center items-center"
+      id="home"
+    >
       <div className="max-w-screen-2xl h-screen absolute">
         <Image
           src={hero}
           alt="Hero Image"
           className="rounded-sm  w-[400px] h-[780px] md:h-screen md:w-[1504px]"
-          objectFit="cover"
+          priority
         ></Image>
       </div>
       <div className="relative text-white w-full text-center">
@@ -22,8 +25,8 @@ const Hero = () => {
           Amplify Your Skills. Amplify Your Network
         </p>
         <div className="mt-6 space-x-4">
-          <Button className="md:p-6">Sign Up</Button>
-          <Button className="md:p-6 bg-white bg-opacity-0 border border-white dark:text-white">Log In</Button>
+          <Button size={"lg"}>Sign Up</Button>
+          <Button size={"lg"} variant={"secondary"}>Log In</Button>
         </div>
       </div>
     </div>

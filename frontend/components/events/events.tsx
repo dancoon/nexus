@@ -53,7 +53,7 @@ const Events = () => {
           <EventCard key={index} {...event} />
         ))}
       </div>
-      <Button className="mt-10 bg-white bg-opacity-0 border border-black text-black rounded-sm px-4 py-3 dark:bg-white">
+      <Button size={"lg"} variant={"outline"} className="mt-10">
         View All
       </Button>
     </div>

@@ -10,7 +10,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "John",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "Jane",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -30,7 +30,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "John",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -40,7 +40,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "Jane",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "John",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -60,7 +60,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "Jane",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -70,7 +70,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "John",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -80,7 +80,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "Jane",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -90,7 +90,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "John",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {
@@ -100,7 +100,7 @@ const testimonials: Testimonial[] = [
     user: {
       firstname: "Jane",
       lastname: "Doe",
-      avatarUrl: "/doe.jpeg",
+      avatarUrl: "/doe1.jpeg",
     },
   },
   {

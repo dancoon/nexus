@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React from "react";
 import { Article } from "@/lib/types";
 import CustomAvatar from "../ui/custom/avatar";
@@ -20,6 +20,10 @@ const ArticleCard: React.FC<Article> = ({
         width={450}
         height={350}
         className="mb-6"
+        style={{
+          maxWidth: "100%",
+          height: "auto",
+        }}
       />
       <span className="font-bold text-sm">{tag}</span>
       <h4 className="font-bold mt-2 text-lg">{title}</h4>
