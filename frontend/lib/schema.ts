@@ -32,3 +32,7 @@ export const loginSchema = z.object({
     .string()
     .min(8, { message: "Password must contain at least 8 character(s)" }),
 });
+
+export const subscribeSchema = z.object({
+  email: z.string().email(),
+});
