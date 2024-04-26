@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <footer className="max-w-screen-2xl flex flex-wrap mx-auto px-5 md:px-16 pt-5 pb-16 md:pt-20 border-t md:border-0 border-black dark:border-slate-400">
-      <div className="border-b border-black w-full grid-cols-2 hidden md:grid md:mb-20">
+      <div className="w-full grid-cols-2 hidden md:grid md:mb-20">
         <div className="flex space-x-10">
           <Logo />
           <div className="flex flex-col space-y-4">
