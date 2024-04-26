@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import { Article } from "@/lib/types";
 import CustomAvatar from "../ui/custom/avatar";

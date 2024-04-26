@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { FaChevronRight } from "react-icons/fa6";
 import connectimage from "../../public/connect.png";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const About = () => {
   return (

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import whiteModeLogo from "@/public/white-mode-logo.svg";
 import darkModeLogo from "@/public/dark-mode-logo.svg";
 import { useTheme } from "next-themes";

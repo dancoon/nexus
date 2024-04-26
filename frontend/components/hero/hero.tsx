@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import hero from "@/public/hero.png";
 import { Button } from "../ui/button";
 
