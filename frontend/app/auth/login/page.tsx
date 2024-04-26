@@ -43,10 +43,19 @@ export default function page() {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
+  const handleSignInWithGithub = () => {
+    console.log("Sign in with Github");
+  };
+
+  const handleSignInWithGoogle = () => {
+    console.log("Sign in with Google");
+  };
+
   return (
     <>
       <div className="flex max-w-screen-2xl h-screen mx-auto px-4 justify-center">
-        <Card className="w-[400px] h-[460px] text-left mx-auto my-auto">
+        <Card className="w-[400px] h-[500px] text-left mx-auto my-auto">
           <CardHeader>
             <CardTitle>Log into your account</CardTitle>
             <CardDescription>
@@ -97,11 +106,11 @@ export default function page() {
                   </span>
                 </div>
                 <div className="grid grid-cols-2 gap-6">
-                  <Button variant={"outline"}>
+                  <Button variant={"outline"} onClick={handleSignInWithGithub} type="button">
                     <FaGithub className="mr-2 h-4 w-4" />
                     Github
                   </Button>
-                  <Button variant={"outline"}>
+                  <Button variant={"outline"} onClick={handleSignInWithGoogle} type="button">
                     <FaGoogle className="mr-2 h-4 w-4" />
                     Google
                   </Button>
