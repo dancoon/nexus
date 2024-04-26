@@ -4,6 +4,7 @@ import Contact from "@/components/contact/contact";
 import Events from "@/components/events/events";
 import Faqs from "@/components/faqs/faqs";
 import Feature from "@/components/feature/feature";
+import Footer from "@/components/footer/footer";
 import Hero from "@/components/hero/hero";
 import Navbar from "@/components/navbar";
 import Partners from "@/components/partners/partners";
@@ -24,6 +25,7 @@ export default function Home() {
       <Testimonials />
       <Faqs />
       <Contact />
+      <Footer />
     </>
   );
 }
