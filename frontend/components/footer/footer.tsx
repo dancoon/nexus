@@ -1,19 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
-import Logo from "../navbar/logo";
+import React from "react";
 import Link from "next/link";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { z } from "zod";
 import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { subscribeSchema } from "@/lib/schema";
+import Logo from "../navbar/logo";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
+  const form = useForm<z.infer<typeof subscribeSchema>>({
+    resolver: zodResolver(subscribeSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
+  function onSubmit(values: z.infer<typeof subscribeSchema>) {
+    // Do something with the form values.
+    console.log(values);
+  }
 
   return (
     <footer className="max-w-screen-2xl flex flex-wrap mx-auto px-5 md:px-16 pt-5 pb-16 md:pt-20 border-t md:border-0 border-black dark:border-slate-400">
@@ -45,15 +64,27 @@ const Footer = () => {
           <p className="mt-4">
             Stay updated with our latest features and releases.
           </p>
-          <div className="flex mt-6 space-x-4">
-            <Input
-              type="email"
-              placeholder="Enter email address"
-              value={email}
-              onChange={handleEmailChange}
-            />
-            <Button>Subscribe</Button>
-          </div>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex mt-6 space-x-4"
+            >
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="johndoe@gmail.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button>Subscribe</Button>
+            </form>
+          </Form>
+
           <p className="font-xs mt-4">
             By subscribing, you agree to our Privacy Policy and consent to
             receive updates.

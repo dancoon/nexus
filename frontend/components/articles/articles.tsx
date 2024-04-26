@@ -1,6 +1,7 @@
 import React from "react";
-import ArticleCard from "./article-card";
+import Link from "next/link";
 import { Article } from "@/lib/types";
+import ArticleCard from "./article-card";
 import { Button } from "../ui/button";
 
 const articles: Article[] = [
@@ -51,7 +52,10 @@ const articles: Article[] = [
 
 const Articles = () => {
   return (
-    <div className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center" id="articles">
+    <div
+      className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center"
+      id="articles"
+    >
       <h4 className="font-bold text-sm md:text-normal md:text-[18px]">
         Articles
       </h4>
@@ -68,8 +72,8 @@ const Articles = () => {
           <ArticleCard key={index} {...article} />
         ))}
       </div>
-      <Button size={"lg"} variant={"outline"} className="mt-10">
-        View All
+      <Button size={"lg"} variant={"outline"} className="mt-10" asChild>
+        <Link href="/articles"> View All</Link>
       </Button>
     </div>
   );

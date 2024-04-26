@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React, { ReactNode } from "react";
+import Link from "next/link";
 
 export interface ContactCardProps {
   icon: ReactNode;
@@ -21,9 +21,12 @@ const ContactCard: React.FC<ContactCardProps> = ({
       <span className="block mx-auto">{icon}</span>
       <h4 className="font-bold text-xl mt-7">{title}</h4>
       <p className="mt-3">{description}</p>
-      <Link className="mt-5" href={linkHref}>{linkString}</Link>
+      <Link className="mt-5" href={linkHref}>
+        {linkString}
+      </Link>
     </div>
-  );1
+  );
+  1;
 };
 
 export default ContactCard;

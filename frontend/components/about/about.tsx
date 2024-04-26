@@ -1,9 +1,9 @@
 import React from "react";
-import { Button } from "../ui/button";
-import { FaChevronRight } from "react-icons/fa6";
-import connectimage from "../../public/connect.png";
 import Image from "next/image";
 import Link from "next/link";
+import { FaChevronRight } from "react-icons/fa6";
+import { Button } from "../ui/button";
+import connectimage from "../../public/connect.png";
 
 const About = () => {
   return (

@@ -1,6 +1,7 @@
 import React from "react";
-import EventCard from "./event-card";
+import Link from "next/link";
 import { Event } from "@/lib/types";
+import EventCard from "./event-card";
 import { Button } from "../ui/button";
 
 const events: Event[] = [
@@ -38,7 +39,10 @@ const events: Event[] = [
 
 const Events = () => {
   return (
-    <div className="max-w-screen-2xl px-4 py-16 md:pt-28 mx-auto mt-14 md:mt-28 text-center justify-center border-t border-black dark:border-slate-400" id="events">
+    <div
+      className="max-w-screen-2xl px-4 py-16 md:pt-28 mx-auto mt-14 md:mt-28 text-center justify-center border-t border-black dark:border-slate-400"
+      id="events"
+    >
       <h4 className="font-bold text-sm md:text-normal md:text-[18px]">
         Discover
       </h4>
@@ -53,8 +57,8 @@ const Events = () => {
           <EventCard key={index} {...event} />
         ))}
       </div>
-      <Button size={"lg"} variant={"outline"} className="mt-10">
-        View All
+      <Button size={"lg"} variant={"outline"} className="mt-10" asChild>
+        <Link href="/events">View All</Link>
       </Button>
     </div>
   );

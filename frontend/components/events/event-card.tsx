@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { Event } from "@/lib/types";
+import Link from "next/link";
 import { IoLocationOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
-import { Button } from "../ui/button";
 import { FaChevronRight } from "react-icons/fa6";
-import Link from "next/link";
+import { Event } from "@/lib/types";
 
 const EventCard: React.FC<Event> = ({
   tag,

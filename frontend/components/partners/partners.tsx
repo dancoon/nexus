@@ -1,13 +1,12 @@
 "use client";
+
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-
 } from "@/components/ui/carousel";
 
 const Partners = () => {
@@ -21,10 +20,7 @@ const Partners = () => {
         Trusted by top industry leaders for exceptional networking experiences
       </h4>
 
-      <Carousel
-        plugins={[plugin.current]}
-        className="w-full"
-      >
+      <Carousel plugins={[plugin.current]} className="w-full">
         <CarouselContent>
           {Array.from({ length: 45 }).map((_, index) => (
             <CarouselItem key={index} className="basis-24">

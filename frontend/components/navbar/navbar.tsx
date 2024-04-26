@@ -1,13 +1,11 @@
 "use client";
 
-import React from "react";
-import ModeToggle from "../dark-mode-toggle";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import Logo from "./logo";
+import ModeToggle from "../dark-mode-toggle";
 
 const NavLinks = [
   { title: "Features", href: "#features" },

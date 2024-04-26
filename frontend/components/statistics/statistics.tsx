@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "../ui/button";
-import { FaChevronRight } from "react-icons/fa6";
 import Link from "next/link";
+import { FaChevronRight } from "react-icons/fa6";
+import { Button } from "../ui/button";
 
 const Statistics = () => {
   return (

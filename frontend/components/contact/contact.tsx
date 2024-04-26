@@ -1,8 +1,8 @@
 import React from "react";
-import ContactCard, { ContactCardProps } from "./contact-card";
 import { MdOutlineMail } from "react-icons/md";
 import { BsChatLeftText } from "react-icons/bs";
 import { FaPhone } from "react-icons/fa6";
+import ContactCard, { ContactCardProps } from "./contact-card";
 
 const contactItems: ContactCardProps[] = [
   {

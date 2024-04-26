@@ -1,6 +1,6 @@
-import Link from "next/link";
 import React from "react";
-import { FaArrowsUpDownLeftRight, FaChevronRight } from "react-icons/fa6";
+import Link from "next/link";
+import { FaChevronRight } from "react-icons/fa6";
 
 interface FeatureCardProps {
   title: string;

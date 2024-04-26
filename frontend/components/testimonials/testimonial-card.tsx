@@ -1,16 +1,16 @@
 "use client";
+
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import Rating from "@mui/material/Rating";
-
 import { Card, CardContent } from "@/components/ui/card";
+import { Testimonial } from "@/lib/types";
+import CustomAvatar from "../ui/custom/avatar";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import CustomAvatar from "../ui/custom/avatar";
-import { Testimonial, User } from "@/lib/types";
 
 const TestimonialCard: React.FC<{ testimonials: Testimonial[] }> = ({
   testimonials,
@@ -37,8 +37,10 @@ const TestimonialCard: React.FC<{ testimonials: Testimonial[] }> = ({
                     <p className="mt-6">{comment}</p>
                     <div className="mt-5">
                       <CustomAvatar user={user} />
-                      <div className="mt-4"> 
-                        <span className="block">{user.firstname + " " + user.lastname}</span>
+                      <div className="mt-4">
+                        <span className="block">
+                          {user.firstname + " " + user.lastname}
+                        </span>
                         <span className="block">Software Engineer</span>
                       </div>
                     </div>

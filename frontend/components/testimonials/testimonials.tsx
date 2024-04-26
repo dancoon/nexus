@@ -1,6 +1,6 @@
 import React from "react";
-import TestimonialCard from "./testimonial-card";
 import { Testimonial } from "@/lib/types";
+import TestimonialCard from "./testimonial-card";
 
 const testimonials: Testimonial[] = [
   {

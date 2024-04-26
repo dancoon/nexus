@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import {
   Accordion,
@@ -7,7 +8,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Faq } from "@/lib/types";
-import { Button } from "../ui/button";
 
 const faqs: Faq[] = [
   {
