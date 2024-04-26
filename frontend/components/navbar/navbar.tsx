@@ -12,9 +12,9 @@ import Logo from "./logo";
 const NavLinks = [
   { title: "Features", href: "#features" },
   { title: "About", href: "#about" },
-  { title: "Articles", href: "#" },
-  { title: "Events", href: "#" },
-  { title: "FAQs", href: "#" },
+  { title: "Articles", href: "#articles" },
+  { title: "Events", href: "#events" },
+  { title: "FAQs", href: "#faqs" },
 ];
 
 const Navbar = () => {

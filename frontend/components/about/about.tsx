@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div
       className="max-w-screen-2xl px-4 mx-auto mt-14 text-left justify-center md:mt-28 flex md:items-center"
-      id="#about"
+      id="about"
     >
       <div className="md:min-h-[540px]">
         <h2 className="text-xl font-bold md:hidden">

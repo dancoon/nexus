@@ -29,7 +29,10 @@ const faqs: Faq[] = [
 
 const Faqs = () => {
   return (
-    <div className="max-w-screen-2xl px-4 py-16 md:py-28 mx-auto mt-14 md:mt-28 text-center justify-center border-t border-black dark:border-slate-400">
+    <div
+      className="max-w-screen-2xl px-4 py-16 md:py-28 mx-auto mt-14 md:mt-28 text-center justify-center border-t border-black dark:border-slate-400"
+      id="faqs"
+    >
       <h3 className="font-bold text-3xl mt-3 md:text-5xl">FAQs</h3>
       <p className="text-sm mt-5 md:text-lg max-w-[850px] md:text-center mx-auto">
         Discover answers to commonly asked questions about Nexus and its diverse

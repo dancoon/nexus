@@ -51,7 +51,7 @@ const articles: Article[] = [
 
 const Articles = () => {
   return (
-    <div className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center">
+    <div className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center" id="articles">
       <h4 className="font-bold text-sm md:text-normal md:text-[18px]">
         Articles
       </h4>
