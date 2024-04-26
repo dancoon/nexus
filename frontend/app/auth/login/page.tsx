@@ -1,13 +1,16 @@
 "use client";
 import React from "react";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { FaGithub } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { loginSchema } from "@/lib/schema";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -17,18 +20,11 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { loginSchema } from "@/lib/schema";
-import { Label } from "@/components/ui/label";
-import { FaGithub } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
 
 export default function page() {
-  // 1. Define your form.
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -37,10 +33,8 @@ export default function page() {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof loginSchema>) {
     // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
   }
 
@@ -106,11 +100,19 @@ export default function page() {
                   </span>
                 </div>
                 <div className="grid grid-cols-2 gap-6">
-                  <Button variant={"outline"} onClick={handleSignInWithGithub} type="button">
+                  <Button
+                    variant={"outline"}
+                    onClick={handleSignInWithGithub}
+                    type="button"
+                  >
                     <FaGithub className="mr-2 h-4 w-4" />
                     Github
                   </Button>
-                  <Button variant={"outline"} onClick={handleSignInWithGoogle} type="button">
+                  <Button
+                    variant={"outline"}
+                    onClick={handleSignInWithGoogle}
+                    type="button"
+                  >
                     <FaGoogle className="mr-2 h-4 w-4" />
                     Google
                   </Button>
