@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { z } from "zod";
 import { FaGithub } from "react-icons/fa";
@@ -23,6 +24,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function page() {
   const form = useForm<z.infer<typeof signupSchema>>({
@@ -114,7 +116,7 @@ export default function page() {
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
                   <span className="bg-background px-2 text-muted-foreground">
-                    Or continue with
+                    Or sign up with
                   </span>
                 </div>
                 <div className="grid grid-cols-2 gap-6">
@@ -140,6 +142,12 @@ export default function page() {
                 </Button>
               </form>
             </Form>
+            <p className="text-sm text-center mt-3">
+              Already have an account?{" "}
+              <Button variant={"link"} asChild>
+                <Link href="/auth/login"> Sign in</Link>
+              </Button>
+            </p>
           </CardContent>
         </Card>
       </div>

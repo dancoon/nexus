@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -20,9 +21,11 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function page() {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -35,6 +38,9 @@ export default function page() {
 
   function onSubmit(values: z.infer<typeof loginSchema>) {
     // Do something with the form values.
+    const nextUrl = new URLSearchParams(window.location.search).get("next");
+
+    console.log(nextUrl);
     console.log(values);
   }
 
@@ -49,7 +55,7 @@ export default function page() {
   return (
     <>
       <div className="flex max-w-screen-2xl h-screen mx-auto px-4 justify-center">
-        <Card className="w-[400px] h-[500px] text-left mx-auto my-auto">
+        <Card className="w-[400px] max-h-[570px] text-left mx-auto my-auto">
           <CardHeader>
             <CardTitle>Log into your account</CardTitle>
             <CardDescription>
@@ -81,7 +87,16 @@ export default function page() {
                     name="password"
                     render={({ field }) => (
                       <FormItem className="flex flex-col space-y-1.5">
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel className="flex justify-between items-center">
+                          Password{" "}
+                          <Button
+                            variant={"link"}
+                            type="button"
+                            className="text-sm text-muted-foreground"
+                          >
+                            Forgot your password?
+                          </Button>
+                        </FormLabel>
                         <FormControl>
                           <Input
                             placeholder="*******"
@@ -122,6 +137,12 @@ export default function page() {
                 </Button>
               </form>
             </Form>
+            <p className="text-sm text-center mt-3">
+              Don't have an account?{" "}
+              <Button variant={"link"} asChild>
+                <Link href="/auth/signup"> Sign up</Link>
+              </Button>
+            </p>
           </CardContent>
         </Card>
       </div>
