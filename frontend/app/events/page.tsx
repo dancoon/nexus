@@ -299,13 +299,13 @@ export default function Home() {
           </li>
         ))}
       </ul>
-      <ScrollArea className="h-[740px]">
+      <ScrollArea className="md:h-[740px]">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           {events.slice(0, 12).map((event, index) => (
             <EventCard key={index} {...event} />
           ))}
         </div>
-        <Pagination className="mt-12 max-w-sm mb-4">
+        <Pagination className="mt-12 max-w-sm md:mb-4">
           <PaginationPrevious>
             <PaginationLink href="#">Previous</PaginationLink>
           </PaginationPrevious>
