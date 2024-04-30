@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Event } from "@/lib/types";
 import EventCard from "./event-card";
 import { Button } from "../ui/button";
+import EventCardSkeleton from "./event-card-skeleton";
 
 const events: Event[] = [
   {
@@ -38,6 +39,8 @@ const events: Event[] = [
 ];
 
 const Events = () => {
+  const isLoading = false;
+
   return (
     <div
       className="max-w-screen-2xl px-4 py-16 md:pt-28 mx-auto mt-14 md:mt-28 text-center justify-center border-t border-black dark:border-slate-400"
@@ -52,9 +55,17 @@ const Events = () => {
         network, learn, and stay connected in the evolving world of technology.
       </p>
 
+      {isLoading && (
+        <div className="mt-12 space-y-12 md:grid md:grid-cols-3 md:space-y-0">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <EventCardSkeleton key={index} />
+          ))}
+        </div>
+      )}
+
       <div className="mt-12 space-y-12 md:grid md:grid-cols-3 md:space-y-0">
         {events.map((event, index) => (
-          <EventCard key={index} {...event} displayLink/>
+          <EventCard key={index} {...event} displayLink />
         ))}
       </div>
       <Button size={"lg"} variant={"outline"} className="mt-10" asChild>
