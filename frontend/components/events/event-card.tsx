@@ -6,7 +6,11 @@ import { SlCalender } from "react-icons/sl";
 import { FaChevronRight } from "react-icons/fa6";
 import { Event } from "@/lib/types";
 
-const EventCard: React.FC<Event> = ({
+interface EventCardProps extends Event {
+  displayLink?: boolean;
+}
+
+const EventCard: React.FC<EventCardProps> = ({
   tag,
   imageUrl,
   title,
@@ -14,6 +18,7 @@ const EventCard: React.FC<Event> = ({
   date,
   location,
   link,
+  displayLink,
 }) => {
   return (
     <div className="text-left max-w-[450px] border border-black rounded-sm dark:border-white">
@@ -45,10 +50,12 @@ const EventCard: React.FC<Event> = ({
         </div>
         <h4 className="font-bold mt-2 text-lg">{title}</h4>
         <p className="mt-2">{description}</p>
-        <Link href={link} className="flex items-center mt-4">
-          <span>View Event </span>
-          <FaChevronRight className="ml-1" />
-        </Link>
+        {displayLink && (
+          <Link href={link} className="flex items-center mt-4">
+            <span>View Event </span>
+            <FaChevronRight className="ml-1" />
+          </Link>
+        )}
       </div>
     </div>
   );

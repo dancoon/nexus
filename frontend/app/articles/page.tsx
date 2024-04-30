@@ -650,7 +650,7 @@ const articles: Article[] = [
 
     datePublished: "2021-01-02",
     minutesToRead: 5,
-  }
+  },
 ];
 
 const topics = [

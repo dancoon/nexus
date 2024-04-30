@@ -54,7 +54,7 @@ const Events = () => {
 
       <div className="mt-12 space-y-12 md:grid md:grid-cols-3 md:space-y-0">
         {events.map((event, index) => (
-          <EventCard key={index} {...event} />
+          <EventCard key={index} {...event} displayLink/>
         ))}
       </div>
       <Button size={"lg"} variant={"outline"} className="mt-10" asChild>
