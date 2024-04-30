@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Article } from "@/lib/types";
+import ArticleCardSkeleton from "./article-card-skeleton";
 import ArticleCard from "./article-card";
 import { Button } from "../ui/button";
 
@@ -54,6 +55,8 @@ const articles: Article[] = [
 ];
 
 const Articles = () => {
+  const isLoading = false;
+
   return (
     <div
       className="max-w-screen-2xl px-4 mx-auto mt-14 md:mt-28 text-center justify-center"
@@ -69,6 +72,14 @@ const Articles = () => {
         Stay updated with the latest tech articles, tutorials, and industry news
         to keep yourself informed and ahead of the curve.
       </p>
+
+      {isLoading && (
+        <div className="mt-12 space-y-12 md:grid md:grid-cols-3 md:space-y-0">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <ArticleCardSkeleton key={index} />
+          ))}
+        </div>
+      )}
 
       <div className="mt-12 space-y-12 md:grid md:grid-cols-3 md:space-y-0">
         {articles.map((article, index) => (
