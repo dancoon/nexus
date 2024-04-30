@@ -5,7 +5,8 @@ export interface User {
 }
 
 export interface Article {
-  tag: string;
+  topic: string
+  tags: string[];
   imageUrl: string;
   title: string;
   description: string;

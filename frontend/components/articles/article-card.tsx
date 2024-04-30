@@ -4,7 +4,8 @@ import { Article } from "@/lib/types";
 import CustomAvatar from "../ui/custom/avatar";
 
 const ArticleCard: React.FC<Article> = ({
-  tag,
+  tags,
+  topic,
   imageUrl,
   title,
   description,
@@ -25,7 +26,7 @@ const ArticleCard: React.FC<Article> = ({
           height: "auto",
         }}
       />
-      <span className="font-bold text-sm">{tag}</span>
+      <span className="font-bold text-sm">{topic}</span>
       <h4 className="font-bold mt-2 text-lg">{title}</h4>
       <p className="mt-2">{description}</p>
 

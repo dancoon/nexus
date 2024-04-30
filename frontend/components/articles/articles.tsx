@@ -6,7 +6,8 @@ import { Button } from "../ui/button";
 
 const articles: Article[] = [
   {
-    tag: "Technology",
+    tags: [],
+    topic: "Technology",
     imageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
     description:
@@ -20,7 +21,8 @@ const articles: Article[] = [
     minutesToRead: 5,
   },
   {
-    tag: "Data",
+    tags: [],
+    topic: "Data",
     imageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
     description:
@@ -35,7 +37,8 @@ const articles: Article[] = [
     minutesToRead: 5,
   },
   {
-    tag: "Mobile",
+    tags: [],
+    topic: "Mobile",
     imageUrl: "/mobile.jpeg",
     title: "Building Mobile Apps: Best Practices",
     description:
