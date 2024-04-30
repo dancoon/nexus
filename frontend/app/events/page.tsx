@@ -13,6 +13,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import EventCardSkeleton from "@/components/events/event-card-skeleton";
 
 const events: Event[] = [
   {
@@ -288,6 +289,8 @@ const events: Event[] = [
 ];
 
 export default function Home() {
+  const isloading = false;
+
   return (
     <Wrapper title="events">
       {/* <ul className="flex max-w-[250px]">
@@ -299,6 +302,15 @@ export default function Home() {
           </li>
         ))}
       </ul> */}
+      {isloading && (
+        <div className="md:h-[850px]">
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {Array.from({ length: 12 }).map((_, index) => (
+              <EventCardSkeleton key={index} />
+            ))}
+          </div>
+        </div>
+      )}
       <ScrollArea className="md:h-[850px]">
         <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
           {events.slice(0, 12).map((event, index) => (
