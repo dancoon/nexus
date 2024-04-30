@@ -290,7 +290,7 @@ const events: Event[] = [
 export default function Home() {
   return (
     <Wrapper title="events">
-      <ul className="flex max-w-[250px]">
+      {/* <ul className="flex max-w-[250px]">
         {events.map((item, index) => (
           <li key={index} className="mr-4">
             <Card>
@@ -298,14 +298,14 @@ export default function Home() {
             </Card>
           </li>
         ))}
-      </ul>
-      <ScrollArea className="md:h-[740px]">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+      </ul> */}
+      <ScrollArea className="md:h-[850px]">
+        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
           {events.slice(0, 12).map((event, index) => (
             <EventCard key={index} {...event} />
           ))}
         </div>
-        <Pagination className="mt-12 max-w-sm md:mb-4">
+        <Pagination className="mt-12 max-w-xs md:mb-4">
           <PaginationPrevious>
             <PaginationLink href="#">Previous</PaginationLink>
           </PaginationPrevious>
@@ -318,9 +318,6 @@ export default function Home() {
             </PaginationItem>
             <PaginationItem>
               <PaginationLink href="#">3</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">4</PaginationLink>
             </PaginationItem>
             <PaginationEllipsis />
             <PaginationItem>
