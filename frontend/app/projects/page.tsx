@@ -54,6 +54,28 @@ const projects: Project[] = [
     },
     topics: ["topic1", "topic2", "topic3"],
   },
+  {
+    title: "Project 2",
+    description: "Description for Project 2",
+    repoLink: "https://github.com",
+    user: {
+      firstname: "John",
+      lastname: "Doe",
+      avatarUrl: "/doe.jpeg",
+    },
+    topics: ["topic1", "topic2", "topic3"],
+  },
+  {
+    title: "Project 3",
+    description: "Description for Project 3",
+    repoLink: "https://github.com",
+    user: {
+      firstname: "John",
+      lastname: "Doe",
+      avatarUrl: "/doe.jpeg",
+    },
+    topics: ["topic1", "topic2", "topic3"],
+  },
 ];
 
 export default function Home() {
@@ -125,7 +147,7 @@ export default function Home() {
 
             {!isLoading && (
               <div>
-                {projects.slice(0, 3).map((project, index) => (
+                {projects.slice(0, 4).map((project, index) => (
                   <SideProjectCard key={index} {...project} />
                 ))}
               </div>
