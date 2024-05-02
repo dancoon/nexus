@@ -35,3 +35,11 @@ export interface Faq {
   question: string;
   answer: string;
 }
+
+export interface Project {
+  title: string;
+  description: string;
+  repoLink: string;
+  user: User;
+  topics: string[];
+}
