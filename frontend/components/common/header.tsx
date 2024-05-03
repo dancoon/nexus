@@ -3,13 +3,13 @@ import Link from "next/link";
 import {
   Bell,
   Home,
-  LineChart,
+  FolderGit2,
   Menu,
   MessageCircleCode,
-  Package,
   Search,
-  ShoppingCart,
   Users,
+  CalendarSearch,
+  Newspaper
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -26,24 +26,24 @@ const sidemenuItems = [
     hrefString: "/home",
   },
   {
-    title: "Articles",
-    icon: ShoppingCart,
-    hrefString: "/articles",
-  },
-  {
-    title: "Events",
-    icon: Package,
-    hrefString: "/events",
+    title: "Developers",
+    icon: Users,
+    hrefString: "/developers",
   },
   {
     title: "Projects",
-    icon: Users,
+    icon: FolderGit2,
     hrefString: "/projects",
   },
   {
-    title: "Developers",
-    icon: LineChart,
-    hrefString: "/developers",
+    title: "Events",
+    icon: CalendarSearch,
+    hrefString: "/events",
+  },
+  {
+    title: "Articles",
+    icon: Newspaper,
+    hrefString: "/articles",
   },
   {
     title: "Threads",
@@ -99,7 +99,7 @@ const Header = ({
           </form>
         )}
       </div>
-      < Bell className="h-5 w-5" />
+      <Bell className="h-5 w-5" />
       <ProfileDropDownMenu />
     </header>
   );

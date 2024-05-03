@@ -5,10 +5,9 @@ import {
   Home,
   Newspaper,
   Users,
-  MessageCircleCode
+  MessageCircleCode,
 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import Logo from "../navbar/logo";
 import Header from "./header";
 
@@ -19,14 +18,9 @@ const sidemenuItems = [
     hrefString: "/home",
   },
   {
-    title: "Articles",
-    icon: Newspaper,
-    hrefString: "/articles",
-  },
-  {
-    title: "Events",
-    icon: CalendarSearch,
-    hrefString: "/events",
+    title: "Developers",
+    icon: Users,
+    hrefString: "/developers",
   },
   {
     title: "Projects",
@@ -34,9 +28,14 @@ const sidemenuItems = [
     hrefString: "/projects",
   },
   {
-    title: "Developers",
-    icon: Users,
-    hrefString: "/developers",
+    title: "Events",
+    icon: CalendarSearch,
+    hrefString: "/events",
+  },
+  {
+    title: "Articles",
+    icon: Newspaper,
+    hrefString: "/articles",
   },
   {
     title: "Threads",
