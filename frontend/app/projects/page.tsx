@@ -1,6 +1,4 @@
-import ArticleItemSkeleton from "@/components/articles/article-item-skeleton";
-import SideArticleCard from "@/components/articles/side-article-card";
-import SideArticleCardSkeleton from "@/components/articles/side-article-card-skeleton";
+import React from "react";
 import SideCard from "@/components/common/sidecard";
 import Wrapper from "@/components/common/wrapper";
 import ProjectItem from "@/components/projects/project-item";
@@ -18,7 +16,6 @@ import {
 } from "@/components/ui/pagination";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Project } from "@/lib/types";
-import React from "react";
 
 const projects: Project[] = [
   {
