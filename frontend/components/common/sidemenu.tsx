@@ -5,6 +5,7 @@ import {
   Home,
   Newspaper,
   Users,
+  MessageCircleCode
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -36,6 +37,11 @@ const sidemenuItems = [
     title: "Developers",
     icon: Users,
     hrefString: "/developers",
+  },
+  {
+    title: "Threads",
+    icon: MessageCircleCode,
+    hrefString: "/threads",
   },
 ];
 

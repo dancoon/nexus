@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import {
+  Bell,
   Home,
   LineChart,
   Menu,
+  MessageCircleCode,
   Package,
   Search,
   ShoppingCart,
@@ -42,6 +44,11 @@ const sidemenuItems = [
     title: "Developers",
     icon: LineChart,
     hrefString: "/developers",
+  },
+  {
+    title: "Threads",
+    icon: MessageCircleCode,
+    hrefString: "/threads",
   },
 ];
 
@@ -92,6 +99,7 @@ const Header = ({
           </form>
         )}
       </div>
+      < Bell className="h-5 w-5" />
       <ProfileDropDownMenu />
     </header>
   );
