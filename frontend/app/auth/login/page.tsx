@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { FaGithub } from "react-icons/fa";
@@ -21,13 +23,18 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Link from "next/link";
+import { useAppDispatch } from "@/redux/hooks";
+import { useLoginMutation } from "@/redux/features/authApiSlice";
+import { setAuth, setUser } from "@/redux/features/authSlice";
 
 export default function page() {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const [logIn, { isLoading, error }] = useLoginMutation();
+
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -37,11 +44,21 @@ export default function page() {
   });
 
   function onSubmit(values: z.infer<typeof loginSchema>) {
-    // Do something with the form values.
-    const nextUrl = new URLSearchParams(window.location.search).get("next");
+    const nextUrl =
+      new URLSearchParams(window.location.search).get("next") || "/home";
 
-    console.log(nextUrl);
-    console.log(values);
+    logIn({ ...values })
+      .unwrap()
+      .then(() => {
+        console.log("Logged In");
+        router.push(nextUrl);
+        dispatch(setAuth());
+        dispatch(setUser(values.email));
+      });
+
+    if (error) {
+      console.log(error);
+    }
   }
 
   const handleSignInWithGithub = () => {
@@ -61,6 +78,11 @@ export default function page() {
             <CardDescription>
               Enter your email below to sign in.
             </CardDescription>
+            {error && (
+              <p className="font-medium text-destructive">
+                {"No active account with given credentials"}
+              </p>
+            )}
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -133,7 +155,7 @@ export default function page() {
                   </Button>
                 </div>
                 <Button type="submit" size={"lg"} className="w-full">
-                  Sign In
+                  {isLoading ? "Signing In..." : "Sign In"}
                 </Button>
               </form>
             </Form>
