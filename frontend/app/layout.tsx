@@ -4,6 +4,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import CustomProvider from "@/redux/provider";
+import { Toaster } from "@/components/ui/toaster";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,7 +36,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CustomProvider>{children}</CustomProvider>
+          <CustomProvider>
+            <Toaster />
+            {children}
+          </CustomProvider>
         </ThemeProvider>
       </body>
     </html>

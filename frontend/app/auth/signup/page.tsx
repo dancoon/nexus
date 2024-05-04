@@ -25,8 +25,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useSignUpMutation } from "@/redux/features/authApiSlice";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function page() {
+  const router = useRouter();
+  const [signUp, { isLoading, error }] = useSignUpMutation();
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -37,8 +44,24 @@ export default function page() {
   });
 
   function onSubmit(values: z.infer<typeof signupSchema>) {
-    // Do something with the form values.
-    console.log(values);
+    signUp({ ...values })
+      .unwrap()
+      .then(() => {
+        console.log("Signed Up");
+        toast({
+          title: "Account created successfully",
+          description: "Check your email to verify your account",
+        });
+        router.push("/auth/login");
+      })
+      .catch((error) => {
+        const errMessage = error?.data?.email[0];
+        console.log(errMessage);
+        toast({
+          description: errMessage,
+          variant: "destructive",
+        });
+      });
   }
 
   const handleSignInWithGithub = () => {

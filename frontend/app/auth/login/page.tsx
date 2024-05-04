@@ -29,6 +29,7 @@ import {
 import { useAppDispatch } from "@/redux/hooks";
 import { useLoginMutation } from "@/redux/features/authApiSlice";
 import { setAuth, setUser } from "@/redux/features/authSlice";
+import { toast } from "@/components/ui/use-toast";
 
 export default function page() {
   const dispatch = useAppDispatch();
@@ -50,15 +51,21 @@ export default function page() {
     logIn({ ...values })
       .unwrap()
       .then(() => {
-        console.log("Logged In");
+        toast({
+          title: "Sign In Successful",
+          description: "You have successfully signed in",
+        });
         router.push(nextUrl);
         dispatch(setAuth());
         dispatch(setUser(values.email));
+      })
+      .catch((error) => {
+        const errMessage = error?.data?.email[0];
+        toast({
+          description: errMessage,
+          variant: "destructive",
+        });
       });
-
-    if (error) {
-      console.log(error);
-    }
   }
 
   const handleSignInWithGithub = () => {
@@ -78,11 +85,6 @@ export default function page() {
             <CardDescription>
               Enter your email below to sign in.
             </CardDescription>
-            {error && (
-              <p className="font-medium text-destructive">
-                {"No active account with given credentials"}
-              </p>
-            )}
           </CardHeader>
           <CardContent>
             <Form {...form}>
