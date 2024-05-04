@@ -1,34 +1,47 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
-
-const protectedRoutes = ["/dashboard", "/home", "/articles", "/events", "/projects", "/developers"];
-
-async function checkAuthentication(req: NextRequest): Promise<boolean> {
-  // Implement your authentication logic here
-  // For example, check if a session or token exists and is valid
-  // You can access cookies from req.headers.cookie
-  // Return true if authenticated, false otherwise
-
-  // For demonstration purposes, let's assume we have a session cookie named "session"
-  const cookies = req.headers.getSetCookie() || "";
-  const isAuthenticated = cookies.includes("session");
-
-  return isAuthenticated;
-}
+const protectedRoutes = [
+  "/dashboard",
+  "/home",
+  "/articles",
+  "/events",
+  "/projects",
+  "/developers",
+];
 
 export default async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const isProtectedRoute = protectedRoutes.includes(pathname);
 
   if (isProtectedRoute) {
-    // Check if user is authenticated based on session or token
-    const isAuthenticated = true;
-    if (!isAuthenticated) {
-      const loginUrl = `${
-        process.env.NEXT_PUBLIC_BASE_URL
-      }/auth/login?next=${encodeURIComponent(pathname)}`;
-
-      return NextResponse.redirect(loginUrl);
+    const accessToken = req.cookies.get("access")?.value;
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_HOST}/auth/jwt/verify/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: accessToken }),
+      }
+    );
+    if (!response.ok) {
+      const refreshToken = req.cookies.get("refresh")?.value;
+      const refreshResponse = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_HOST}/auth/jwt/refresh/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ refresh: refreshToken }),
+        }
+      );
+      if (!refreshResponse.ok) {
+        const loginUrl = `${
+          process.env.NEXT_PUBLIC_BASE_URL
+        }/auth/login?next=${encodeURIComponent(pathname)}`;
+        return NextResponse.redirect(loginUrl);
+      }
     }
   }
   return NextResponse.next();
