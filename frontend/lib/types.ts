@@ -5,14 +5,20 @@ export interface User {
 }
 
 export interface Article {
-  topic: string
-  tags: string[];
-  imageUrl: string;
   title: string;
-  description: string;
-  owner: User;
+  content: string;
+  topic: string;
+  coverImageUrl: string;
+  slug: string;
+  author: User;
+  likes: number;
+  comments: number;
+  tags: string[];
+  public: boolean;
+  published: boolean;
   datePublished: string;
   minutesToRead: number;
+  updatedAt: string;
 }
 
 export interface Event {
@@ -26,9 +32,9 @@ export interface Event {
 }
 
 export interface Testimonial {
-  rating: number,
-  comment: string,
-  user: User
+  rating: number;
+  comment: string;
+  user: User;
 }
 
 export interface Faq {
