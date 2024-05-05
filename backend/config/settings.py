@@ -48,10 +48,11 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "drf_yasg",
-    # Djoser
     "djoser",
+    "taggit",
     # Custom Apps
     "users.apps.UsersConfig",
+    "articles.apps.ArticlesConfig",
 ]
 
 
@@ -178,7 +179,14 @@ CORS_ALLOW_CREDENTIALS = True
 # Rest framework settings
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_PARSER_CLASSES": [
+        "rest_framework.parsers.FormParser",
+        "rest_framework.parsers.JSONParser",
+        "rest_framework.parsers.MultiPartParser",
+    ],
     "DEFAULT_AUTHENTICATION_CLASSES": ("users.authentication.CustomJWTAuthentication",),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 12,
 }
 
 # Authentication settings
