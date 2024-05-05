@@ -30,6 +30,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { useLoginMutation } from "@/redux/features/authApiSlice";
 import { setAuth, setUser } from "@/redux/features/authSlice";
 import { toast } from "@/components/ui/use-toast";
+import { errorParse } from "@/lib/utils";
 
 export default function page() {
   const dispatch = useAppDispatch();
@@ -60,8 +61,9 @@ export default function page() {
         dispatch(setUser(values.email));
       })
       .catch((error) => {
-        const errMessage = error?.data?.email[0];
+        const errMessage = errorParse(error?.data);
         toast({
+          title: "Sign In Failed",
           description: errMessage,
           variant: "destructive",
         });

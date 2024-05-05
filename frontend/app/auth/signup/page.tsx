@@ -28,11 +28,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSignUpMutation } from "@/redux/features/authApiSlice";
 import { useToast } from "@/components/ui/use-toast";
+import { errorParse } from "@/lib/utils";
+import { useAppDispatch } from "@/redux/hooks";
+import { setActivated, setAuth, setUser } from "@/redux/features/authSlice";
 
 export default function page() {
   const router = useRouter();
   const [signUp, { isLoading, error }] = useSignUpMutation();
   const { toast } = useToast();
+  const dispatch = useAppDispatch();
 
   const form = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
@@ -47,17 +51,17 @@ export default function page() {
     signUp({ ...values })
       .unwrap()
       .then(() => {
-        console.log("Signed Up");
         toast({
           title: "Account created successfully",
           description: "Check your email to verify your account",
         });
+        dispatch(setActivated());
         router.push("/auth/login");
       })
       .catch((error) => {
-        const errMessage = error?.data?.email[0];
-        console.log(errMessage);
+        const errMessage = errorParse(error?.data);
         toast({
+          title: "Sign Up Failed",
           description: errMessage,
           variant: "destructive",
         });
@@ -161,7 +165,7 @@ export default function page() {
                   </Button>
                 </div>
                 <Button type="submit" size={"lg"} className="w-full">
-                  Sign Up
+                  {isLoading ? "Signing Up..." : "Sign Up"}
                 </Button>
               </form>
             </Form>
