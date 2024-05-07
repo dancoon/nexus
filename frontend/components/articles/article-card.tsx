@@ -6,17 +6,17 @@ import CustomAvatar from "../ui/custom/avatar";
 const ArticleCard: React.FC<Article> = ({
   tags,
   topic,
-  imageUrl,
+  coverImageUrl,
   title,
-  description,
-  owner,
+  content,
+  author,
   datePublished,
   minutesToRead,
 }) => {
   return (
     <div className="text-left max-w-[450px]">
       <Image
-        src={imageUrl}
+        src={coverImageUrl}
         alt={title}
         width={450}
         height={350}
@@ -28,13 +28,13 @@ const ArticleCard: React.FC<Article> = ({
       />
       <span className="font-bold text-sm">{topic}</span>
       <h4 className="font-bold mt-2 text-lg">{title}</h4>
-      <p className="mt-2">{description}</p>
+      <p className="mt-2">{content}</p>
 
       <div className="flex mt-6 space-x-4">
-        <CustomAvatar user={owner} />
+        <CustomAvatar user={author} />
         <div>
           <span className="block w-full font-bold text-sm">
-            {owner.firstname + " " + owner.lastname}
+            {author.firstname + " " + author.lastname}
           </span>
           <span className="block w-full text-sm">
             {datePublished + " . " + minutesToRead + " min read"}

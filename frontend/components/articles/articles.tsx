@@ -8,12 +8,18 @@ import { Button } from "../ui/button";
 const articles: Article[] = [
   {
     tags: [],
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "2021-01-01",
     topic: "Technology",
-    imageUrl: "/technology.jpeg",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -23,12 +29,18 @@ const articles: Article[] = [
   },
   {
     tags: [],
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "2021-01-01",
     topic: "Data",
-    imageUrl: "/data.jpeg",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -39,12 +51,18 @@ const articles: Article[] = [
   },
   {
     tags: [],
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "2021-01-01",
     topic: "Mobile",
-    imageUrl: "/mobile.jpeg",
+    coverImageUrl: "/mobile.jpeg",
     title: "Building Mobile Apps: Best Practices",
-    description:
+    content:
       "Learn the essential techniques for creating high-quality mobile applications.",
-    owner: {
+    author: {
       firstname: "Mark",
       lastname: "Johnson",
       avatarUrl: "/mark.jpeg",

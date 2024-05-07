@@ -6,18 +6,18 @@ const SideArticleCard: React.FC<Article> = ({
   tags,
   topic,
   title,
-  description,
-  owner,
+  content,
+  author,
   datePublished,
   minutesToRead,
 }) => {
   return (
     <div className="text-left max-w-[450px] border-b pb-2">
       <h4 className="font-bold">{title}</h4>
-      <p className=" text-sm">{description}</p>
+      <p className=" text-sm">{content}</p>
       <div className="mt-1">
         <span className="block w-full font-semibold text-xs">
-          {owner.firstname + " " + owner.lastname}
+          {author.firstname + " " + author.lastname}
         </span>
       </div>
     </div>
