@@ -49,6 +49,11 @@ class ArticleSerializer(TaggitSerializer, serializers.HyperlinkedModelSerializer
             "minutes_to_read",
         ]
 
+    # Override the create method to set the author field to the current user
+    def create(self, validated_data):
+        validated_data["author"] = self.context["request"].user
+        return super().create(validated_data)
+
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
