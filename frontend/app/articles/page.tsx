@@ -23,11 +23,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -38,11 +44,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -54,11 +66,17 @@ const articles: Article[] = [
   {
     topic: "Mobile",
     tags: [],
-    imageUrl: "/mobile.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/mobile.jpeg",
     title: "Building Mobile Apps: Best Practices",
-    description:
+    content:
       "Learn the essential techniques for creating high-quality mobile applications.",
-    owner: {
+    author: {
       firstname: "Mark",
       lastname: "Johnson",
       avatarUrl: "/mark.jpeg",
@@ -69,11 +87,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -84,11 +108,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -100,11 +130,17 @@ const articles: Article[] = [
   {
     topic: "Mobile",
     tags: [],
-    imageUrl: "/mobile.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/mobile.jpeg",
     title: "Building Mobile Apps: Best Practices",
-    description:
+    content:
       "Learn the essential techniques for creating high-quality mobile applications.",
-    owner: {
+    author: {
       firstname: "Mark",
       lastname: "Johnson",
       avatarUrl: "/mark.jpeg",
@@ -115,11 +151,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -130,11 +172,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -146,11 +194,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -161,11 +215,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -177,11 +237,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -192,11 +258,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -208,11 +280,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -223,11 +301,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -239,11 +323,17 @@ const articles: Article[] = [
   {
     topic: "Mobile",
     tags: [],
-    imageUrl: "/mobile.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/mobile.jpeg",
     title: "Building Mobile Apps: Best Practices",
-    description:
+    content:
       "Learn the essential techniques for creating high-quality mobile applications.",
-    owner: {
+    author: {
       firstname: "Mark",
       lastname: "Johnson",
       avatarUrl: "/mark.jpeg",
@@ -254,11 +344,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -269,11 +365,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -285,11 +387,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -300,11 +408,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -316,11 +430,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -331,11 +451,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -347,11 +473,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -362,11 +494,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -378,11 +516,17 @@ const articles: Article[] = [
   {
     topic: "Mobile",
     tags: [],
-    imageUrl: "/mobile.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/mobile.jpeg",
     title: "Building Mobile Apps: Best Practices",
-    description:
+    content:
       "Learn the essential techniques for creating high-quality mobile applications.",
-    owner: {
+    author: {
       firstname: "Mark",
       lastname: "Johnson",
       avatarUrl: "/mark.jpeg",
@@ -393,11 +537,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -408,11 +558,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -424,11 +580,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -439,11 +601,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -455,11 +623,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -470,11 +644,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -486,11 +666,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -501,11 +687,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -517,11 +709,17 @@ const articles: Article[] = [
   {
     topic: "Mobile",
     tags: [],
-    imageUrl: "/mobile.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/mobile.jpeg",
     title: "Building Mobile Apps: Best Practices",
-    description:
+    content:
       "Learn the essential techniques for creating high-quality mobile applications.",
-    owner: {
+    author: {
       firstname: "Mark",
       lastname: "Johnson",
       avatarUrl: "/mark.jpeg",
@@ -532,11 +730,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -547,11 +751,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -563,11 +773,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -578,11 +794,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -594,11 +816,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -609,11 +837,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
@@ -625,11 +859,17 @@ const articles: Article[] = [
   {
     topic: "Technology",
     tags: [],
-    imageUrl: "/technology.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/technology.jpeg",
     title: "Mastering Web Development: Tips and Tricks",
-    description:
+    content:
       "Learn advanced techniques to level up your web development skills.",
-    owner: {
+    author: {
       firstname: "John",
       lastname: "Doe",
       avatarUrl: "/doe1.jpeg",
@@ -640,11 +880,17 @@ const articles: Article[] = [
   {
     topic: "Data",
     tags: [],
-    imageUrl: "/data.jpeg",
+    slug: "",
+    likes: 0,
+    comments: 0,
+    public: true,
+    published: true,
+    updatedAt: "",
+    coverImageUrl: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
-    description:
+    content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    owner: {
+    author: {
       firstname: "Jane",
       lastname: "Smith",
       avatarUrl: "/jane.jpeg",
