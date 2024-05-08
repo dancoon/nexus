@@ -3,6 +3,7 @@ from django.db.models.signals import post_save, post_delete, pre_save
 from django.dispatch import receiver
 from .models import Article, ArticleLike, Comment
 from django.utils.text import slugify
+from bs4 import BeautifulSoup
 
 
 # Signal to update minutes_to_read in Article model before saving
@@ -35,12 +36,22 @@ def update_article_comments_count(sender, instance, **kwargs):
     article.save()
 
 
-# Signal to update article's slug when created or when title is updated
+# Signal to update article's slug when created
 @receiver(post_save, sender=Article)
-def update_article_slug(sender, instance, **kwargs):
-    if instance.title and not instance.slug:
-        instance.slug = f"{instance.id}-{slugify(instance.title)}"
+def create_article_slug(sender, instance, created, **kwargs):
+    # instance title is in hml format and needs to be stripped so as to get the actual title
+    if created:
+        soup = BeautifulSoup(instance.title, "html.parser")
+        instance.slug = f"{slugify(soup.get_text())}-{instance.id}"
         instance.save()
+
+
+# Signal to update article's slug when title updated
+@receiver(pre_save, sender=Article)
+def update_article_slug(sender, instance, **kwargs):
+    if instance.pk:
+        soup = BeautifulSoup(instance.title, "html.parser")
+        instance.slug = f"{slugify(soup.get_text())}-{instance.id}"
 
 
 # Signal to update the replies count in Comment model

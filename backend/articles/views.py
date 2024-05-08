@@ -45,12 +45,25 @@ def article_detail(request, slug):
 
     # Get Article
     if request.method == "GET":
-        serializer = serializers.ArticleSerializer(article, context={'request': request})
+        serializer = serializers.ArticleSerializer(
+            article, context={"request": request}
+        )
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     # Update article
     elif request.method == "PUT":
-        serializer = serializers.ArticleSerializer(article, data=request.data)
+        if not request.user.is_authenticated:
+            return Response(
+                {"detail": "Authentication credentials were not provided."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        mutable_data = request.data.copy()
+
+        if not "cover_image_url" in mutable_data:
+            mutable_data["cover_image_url"] = article.cover_image_url
+
+        serializer = serializers.ArticleSerializer(article, data=mutable_data, partial=True, context={"request": request})
+
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -82,7 +95,16 @@ def articles_list(request):
 
     # Create a new article
     elif request.method == "POST":
-        serializer = serializers.ArticleSerializer(data=request.data)
+        if not request.user.is_authenticated:
+            return Response(
+                {"detail": "Authentication credentials were not provided."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        data = request.data
+        data["author"] = request.user.id
+        serializer = serializers.ArticleSerializer(
+            data=data, context={"request": request}
+        )
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
