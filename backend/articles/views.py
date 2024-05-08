@@ -45,7 +45,7 @@ def article_detail(request, slug):
 
     # Get Article
     if request.method == "GET":
-        serializer = serializers.ArticleSerializer(article)
+        serializer = serializers.ArticleSerializer(article, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     # Update article
@@ -75,7 +75,9 @@ def articles_list(request):
         paginator = PageNumberPagination()
         articles = models.Article.objects.filter(public=True, published=True)
         result_page = paginator.paginate_queryset(articles, request)
-        serializer = serializers.ArticleSerializer(result_page, many=True)
+        serializer = serializers.ArticleSerializer(
+            result_page, many=True, context={"request": request}
+        )
         return paginator.get_paginated_response(serializer.data)
 
     # Create a new article

@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
 import re
 from django.utils.text import slugify
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 # Create your models here.
@@ -25,10 +26,10 @@ class Topic(models.Model):
 
 
 class Article(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
-    topic = models.ForeignKey("articles.Topic", on_delete=models.CASCADE)
-    cover_image = models.ImageField(upload_to="images/articles/")
+    title = CKEditor5Field("Text", config_name="extends")
+    content = CKEditor5Field("Text", config_name="extends")
+    topic = models.ForeignKey("articles.Topic", on_delete=models.CASCADE, null=True)
+    cover_image_url = models.ImageField(upload_to="images/articles/")
     slug = models.SlugField(unique=True, db_index=True)
     author = models.ForeignKey("users.CustomUser", on_delete=models.CASCADE)
     likes = models.PositiveIntegerField(_("likes"), default=0)
@@ -46,7 +47,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
-    
 
     def calculate_minutes_to_read(self):
         # Calculate the number of words in the article content
