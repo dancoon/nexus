@@ -46,7 +46,9 @@ class CustomTokenRefreshView(TokenRefreshView):
         refresh_token = request.COOKIES.get(settings.AUTH_COOKIE_REFRESH)
 
         if refresh_token:
-            request.data["refresh"] = refresh_token
+            data = request.POST.copy()
+            data["refresh"] = refresh_token
+            request._full_data = data
 
         response = super().post(request, *args, **kwargs)
         if response.status_code == 200:
