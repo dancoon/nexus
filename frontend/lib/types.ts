@@ -7,14 +7,14 @@ export interface User {
 export interface Article {
   title: string;
   content: string;
-  topic: string;
-  coverImageUrl: string;
+  topic: number;
+  cover_image_url: string;
   slug: string;
   author: User;
   likes: number;
   comments: number;
   tags: string[];
-  public: boolean;
+  isPublic: boolean;
   published: boolean;
   datePublished: string;
   minutesToRead: number;
