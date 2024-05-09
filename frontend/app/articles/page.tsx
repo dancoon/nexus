@@ -1,3 +1,5 @@
+"use client";
+
 import ArticleItem from "@/components/articles/article-item";
 import Wrapper from "@/components/common/wrapper";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,880 +15,26 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideArticleCard from "@/components/articles/side-article-card";
 import SideCard from "@/components/common/sidecard";
 import ArticleItemSkeleton from "@/components/articles/article-item-skeleton";
 import SideArticleCardSkeleton from "@/components/articles/side-article-card-skeleton";
+import { useListArticlesQuery } from "@/redux/features/articlesApiSlice";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { number } from "zod";
 
 const articles: Article[] = [
   {
-    topic: "Technology",
+    topic: 1,
     tags: [],
     slug: "",
     likes: 0,
     comments: 0,
-    public: true,
+    isPublic: true,
     published: true,
     updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Mobile",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/mobile.jpeg",
-    title: "Building Mobile Apps: Best Practices",
-    content:
-      "Learn the essential techniques for creating high-quality mobile applications.",
-    author: {
-      firstname: "Mark",
-      lastname: "Johnson",
-      avatarUrl: "/mark.jpeg",
-    },
-    datePublished: "2021-01-03",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Mobile",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/mobile.jpeg",
-    title: "Building Mobile Apps: Best Practices",
-    content:
-      "Learn the essential techniques for creating high-quality mobile applications.",
-    author: {
-      firstname: "Mark",
-      lastname: "Johnson",
-      avatarUrl: "/mark.jpeg",
-    },
-    datePublished: "2021-01-03",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Mobile",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/mobile.jpeg",
-    title: "Building Mobile Apps: Best Practices",
-    content:
-      "Learn the essential techniques for creating high-quality mobile applications.",
-    author: {
-      firstname: "Mark",
-      lastname: "Johnson",
-      avatarUrl: "/mark.jpeg",
-    },
-    datePublished: "2021-01-03",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Mobile",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/mobile.jpeg",
-    title: "Building Mobile Apps: Best Practices",
-    content:
-      "Learn the essential techniques for creating high-quality mobile applications.",
-    author: {
-      firstname: "Mark",
-      lastname: "Johnson",
-      avatarUrl: "/mark.jpeg",
-    },
-    datePublished: "2021-01-03",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Mobile",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/mobile.jpeg",
-    title: "Building Mobile Apps: Best Practices",
-    content:
-      "Learn the essential techniques for creating high-quality mobile applications.",
-    author: {
-      firstname: "Mark",
-      lastname: "Johnson",
-      avatarUrl: "/mark.jpeg",
-    },
-    datePublished: "2021-01-03",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
-    title: "Exploring Data Science: A Practical Guide",
-    content:
-      "Discover the world of data science and learn how to apply it in real-world scenarios.",
-    author: {
-      firstname: "Jane",
-      lastname: "Smith",
-      avatarUrl: "/jane.jpeg",
-    },
-
-    datePublished: "2021-01-02",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Technology",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/technology.jpeg",
-    title: "Mastering Web Development: Tips and Tricks",
-    content:
-      "Learn advanced techniques to level up your web development skills.",
-    author: {
-      firstname: "John",
-      lastname: "Doe",
-      avatarUrl: "/doe1.jpeg",
-    },
-    datePublished: "2021-01-01",
-    minutesToRead: 5,
-  },
-  {
-    topic: "Data",
-    tags: [],
-    slug: "",
-    likes: 0,
-    comments: 0,
-    public: true,
-    published: true,
-    updatedAt: "",
-    coverImageUrl: "/data.jpeg",
+    cover_image_url: "/data.jpeg",
     title: "Exploring Data Science: A Practical Guide",
     content:
       "Discover the world of data science and learn how to apply it in real-world scenarios.",
@@ -914,7 +62,42 @@ const topics = [
 ];
 
 export default function Home() {
-  const isLoading = false;
+  const router = useRouter();
+  const pageNumber = Number(useSearchParams().get("page")) || 1;
+  const [pageRange, setPageRange] = useState([1]);
+  const {
+    data: articles,
+    isLoading,
+    error,
+  } = useListArticlesQuery({ pageNumber });
+  const { count, next, previous, results } = articles || {};
+  const lastPage = Math.ceil(count! / 12);
+
+  useEffect(() => {
+    const totalPages = Math.ceil(count! / 12);
+    const initialPageRange: number[] = [];
+    for (let i = 1; i <= Math.min(totalPages, 3); i++) {
+      initialPageRange.push(i);
+    }
+    setPageRange(initialPageRange);
+  }, [articles?.count]);
+
+  const handlePageChange = (newPageNumber: number) => {
+    // setPageNumber(newPageNumber);
+    // // Update page range when next or previous is clicked
+    // const newRange = [];
+    // for (let i = newPageNumber - 1; i <= newPageNumber + 1; i++) {
+    //   if (i > 0 && i <= lastPage) {
+    //     newRange.push(i);
+    //   }
+    // }
+    // setPageRange(newRange);
+    router.push(`/articles?page=${newPageNumber}`);
+  };
+
+  if (error) {
+    return <div>Error:</div>;
+  }
 
   return (
     <Wrapper title="articles">
@@ -939,33 +122,47 @@ export default function Home() {
             ))}
           </ul> */}
 
-            {articles.slice(0, 12).map((article, index) => (
+            {results?.map((article, index) => (
               <ArticleItem key={index} {...article} />
             ))}
-            <Pagination className="mt-12 max-w-sm">
+
+            <Pagination className="mt-12 mb-8 max-w-sm">
               <PaginationPrevious>
-                <PaginationLink href="#">Previous</PaginationLink>
+                {previous && (
+                  <PaginationLink
+                    onClick={() => handlePageChange(pageNumber - 1)}
+                  >
+                    Previous
+                  </PaginationLink>
+                )}
               </PaginationPrevious>
               <PaginationContent>
-                <PaginationItem>
-                  <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">2</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">3</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">4</PaginationLink>
-                </PaginationItem>
-                <PaginationEllipsis />
-                <PaginationItem>
-                  <PaginationLink href="#">12</PaginationLink>
-                </PaginationItem>
+                {pageRange.map((page, index) => (
+                  <PaginationItem key={index}>
+                    <PaginationLink href={`articles?page=${page}`}>
+                      {page}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                {pageRange[pageRange.length - 1] < lastPage && (
+                  <PaginationEllipsis />
+                )}
+                {lastPage > pageRange[pageRange.length - 1] && (
+                  <PaginationItem key={lastPage + 1}>
+                    <PaginationLink onClick={() => handlePageChange(lastPage)}>
+                      {lastPage}
+                    </PaginationLink>
+                  </PaginationItem>
+                )}
               </PaginationContent>
               <PaginationNext>
-                <PaginationLink href="#">Next</PaginationLink>
+                {next && (
+                  <PaginationLink
+                    onClick={() => handlePageChange(pageNumber + 1)}
+                  >
+                    Next
+                  </PaginationLink>
+                )}
               </PaginationNext>
             </Pagination>
           </ScrollArea>
@@ -983,13 +180,13 @@ export default function Home() {
               </div>
             )}
 
-            {!isLoading && (
+            {/* {!isLoading && (
               <div>
                 {articles.slice(0, 3).map((article, index) => (
                   <SideArticleCard key={index} {...article} />
                 ))}
               </div>
-            )}
+            )} */}
           </SideCard>
         </div>
       </div>
