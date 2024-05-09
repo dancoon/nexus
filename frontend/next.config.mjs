@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: { optimizeCss: true },
+  images: {
+    domains: ["localhost"],
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.externals.push(/@ckeditor\/ckeditor5-react/);
