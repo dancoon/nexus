@@ -1,3 +1,4 @@
+
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
@@ -101,7 +102,7 @@ def articles_list(request):
                 status=status.HTTP_403_FORBIDDEN,
             )
         data = request.data
-        data["author"] = request.user.id
+        # data["author"] = request.user.id
         serializer = serializers.ArticleSerializer(
             data=data, context={"request": request}
         )

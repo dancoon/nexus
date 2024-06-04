@@ -51,9 +51,11 @@ INSTALLED_APPS = [
     "djoser",
     "taggit",
     "django_ckeditor_5",
+    'channels',
     # Custom Apps
-    "users.apps.UsersConfig",
-    "articles.apps.ArticlesConfig",
+    "users",
+    "articles",
+    "chat",
 ]
 
 
@@ -389,5 +391,18 @@ CKEDITOR_5_CONFIGS = {
             "startIndex": "true",
             "reversed": "true",
         }
+    },
+}
+
+
+# Channels
+ASGI_APPLICATION = "ChatAPI.asgi.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
     },
 }
