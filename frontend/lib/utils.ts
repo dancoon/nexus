@@ -19,3 +19,11 @@ export function extractTextFromHTML(htmlString: string): string {
   const text = $("body").text().trim();
   return text;
 }
+
+export function shortenString(str: string, maxLength = 200) {
+  if (str.length <= maxLength) {
+    return str;
+  } else {
+    return str.slice(0, maxLength) + "...";
+  }
+}

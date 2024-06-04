@@ -73,6 +73,8 @@ export default function Home() {
   const { count, next, previous, results } = articles || {};
   const lastPage = Math.ceil(count! / 12);
 
+  console.log("articles", articles);
+
   useEffect(() => {
     const totalPages = Math.ceil(count! / 12);
     const initialPageRange: number[] = [];

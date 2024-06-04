@@ -16,8 +16,8 @@ export interface Article {
   tags: string[];
   isPublic: boolean;
   published: boolean;
-  datePublished: string;
-  minutesToRead: number;
+  date_published: string;
+  minutes_to_read: number;
   updatedAt: string;
 }
 

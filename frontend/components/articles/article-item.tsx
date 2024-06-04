@@ -4,7 +4,7 @@ import { Article } from "@/lib/types";
 import CustomAvatar from "../ui/custom/avatar";
 import { Button } from "../ui/button";
 import { Star } from "lucide-react";
-import { extractTextFromHTML } from "@/lib/utils";
+import { extractTextFromHTML, shortenString } from "@/lib/utils";
 
 const ArticleItem: React.FC<Article> = ({
   topic,
@@ -13,8 +13,8 @@ const ArticleItem: React.FC<Article> = ({
   title,
   content,
   author,
-  datePublished,
-  minutesToRead,
+  date_published,
+  minutes_to_read,
 }) => {
   console.log(
     "ArticleItem",
@@ -26,8 +26,8 @@ const ArticleItem: React.FC<Article> = ({
     title,
     content,
     author,
-    datePublished,
-    minutesToRead
+    date_published,
+    minutes_to_read
   );
   return (
     <div className="max-w-sm md:max-w-screen-lg text-left flex gap-2 border-b py-4 items-center">
@@ -57,7 +57,7 @@ const ArticleItem: React.FC<Article> = ({
           </Button>
         </div>
         <h4 className="font-bold mt-2">{extractTextFromHTML(title)}</h4>
-        <p className="mt-2 text-sm">{extractTextFromHTML(content)}</p>
+        <p className="mt-2 text-sm">{shortenString(extractTextFromHTML(content))}</p>
 
         <div className="flex mt-4 space-x-4">
           {/* <CustomAvatar user={author} /> */}
@@ -67,7 +67,7 @@ const ArticleItem: React.FC<Article> = ({
               Test
             </span>
             <span className="block w-full text-sm">
-              {datePublished + " . " + minutesToRead + " min read"}
+              {date_published + " . " + minutes_to_read + " min read"}
             </span>
           </div>
         </div>
